@@ -1,3 +1,4 @@
+use clap::{arg, App};
 use colored::*;
 use nixinfo::{distro, environment, hostname, kernel, memory, uptime};
 
@@ -15,9 +16,9 @@ fn main() {
         .unwrap()
         .to_string();
 
-    let decor: &str = "";
-    let emoticon: &str = "ʕ•́ᴥ•̀ʔっ♡";
-    // let emoticon: &str = "ʕ•ᴥ•ʔ";
+    let args = args().get_matches();
+    let decor: &str = args.value_of("decor").unwrap();
+    let emoticon: &str = args.value_of("emoticon").unwrap();
 
     macro_rules! print_line {
         ($color:ident, $info:expr, $value:ident) => {
@@ -51,4 +52,25 @@ fn main() {
         ",".white(),
         username.magenta()
     );
+}
+
+pub fn args() -> App<'static> {
+    App::new("edenfetch")
+        .version(env!("CARGO_PKG_VERSION"))
+        .author("EdenQwQ <lsahlm1eden@gmail.com>")
+        .about(env!("CARGO_PKG_DESCRIPTION"))
+        .arg(
+            arg!(-d --decor <COLOR_DECORATION>)
+                .required(false)
+                .takes_value(true)
+                .help("Set a string to print as color decoration")
+                .default_value(""),
+        )
+        .arg(
+            arg!(-e --emoticon <EMOTICON>)
+                .required(false)
+                .takes_value(true)
+                .help("Set a string to print as emoticon")
+                .default_value("ʕ•́ᴥ•̀ʔっ♡"),
+        )
 }
