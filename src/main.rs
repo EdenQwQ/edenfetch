@@ -3,6 +3,7 @@ use colored::*;
 use nixinfo::{distro, environment, hostname, kernel, memory, terminal, uptime};
 
 fn main() {
+
     let username: String = std::env::var("USER").unwrap();
     let hostname: String = hostname().unwrap();
     let uptime: String = uptime().unwrap();
@@ -20,20 +21,21 @@ fn main() {
     let args = args().get_matches();
     let decor: &str = args.value_of("decor").unwrap();
     let emoticon: &str = args.value_of("emoticon").unwrap();
+    let color: &str = args.value_of("color").unwrap();
 
     macro_rules! print_line {
-        ($color:ident, $info:expr, $value:ident) => {
-            println!("  {} ~ {}", $info.$color(), $value.white());
+        ($color:expr, $info:expr, $value:ident) => {
+            println!("  {} ~ {}", $info.color($color), $value.white());
         };
     }
 
     println!();
-    print_line!(cyan, "tm", uptime);
-    print_line!(cyan, "os", distro);
-    print_line!(cyan, "kr", kernel);
-    print_line!(cyan, "mm", memory);
-    print_line!(cyan, "wm", environment);
-    print_line!(cyan, "tm", terminal);
+    print_line!(color, "tm", uptime);
+    print_line!(color, "os", distro);
+    print_line!(color, "kr", kernel);
+    print_line!(color, "mm", memory);
+    print_line!(color, "wm", environment);
+    print_line!(color, "tm", terminal);
     println!();
     println!(
         "  {} {} {} {} {} {} {}",
@@ -74,5 +76,12 @@ pub fn args() -> App<'static> {
                 .takes_value(true)
                 .help("Set a string to print as emoticon")
                 .default_value("ʕ•́ᴥ•̀ʔっ♡"),
+        )
+        .arg(
+            arg!(-c --color <COLOR>)
+                .required(false)
+                .takes_value(true)
+                .help("Set a color to print the info names")
+                .default_value("cyan"),
         )
 }
