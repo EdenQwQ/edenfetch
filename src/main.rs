@@ -40,9 +40,9 @@ fn main() {
         decor.red(),
         decor.yellow(),
         decor.green(),
+        decor.cyan(),
         decor.blue(),
         decor.magenta(),
-        decor.cyan(),
         decor.white()
     );
     println!();
