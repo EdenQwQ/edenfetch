@@ -1,6 +1,6 @@
 # edenfetch
 
-![screenshot](screenshot.png)
+![Screenshot](screenshot.png)
 
 ## Introduction
 
