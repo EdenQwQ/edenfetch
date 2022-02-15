@@ -1,7 +1,7 @@
 # edenfetch
 
 <p align="center">
-  <img src="Screenshot" width="350" title="screenshot">
+  <img src="Screenshot.png" title="screenshot">
 </p>
 
 ## introduction
