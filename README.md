@@ -1,5 +1,7 @@
 # edenfetch
 
+![screenshot](screenshot.png)
+
 ## Introduction
 
 edenfetch is a minimal fetch program written in Rust. Inspired by [jfetch](https://github.com/Jimmysit0/jfetch).
