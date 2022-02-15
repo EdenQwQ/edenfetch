@@ -1,12 +1,12 @@
 # edenfetch
 
-![Screenshot](screenshot.png)
+![screenshot](Screenshot.png)
 
-## Introduction
+## introduction
 
-edenfetch is a minimal fetch program written in Rust. Inspired by [jfetch](https://github.com/Jimmysit0/jfetch).
+edenfetch is a minimal fetch program written in rust. inspired by [jfetch](https://github.com/jimmysit0/jfetch).
 
-## Installation
+## installation
 
 ```bash
 git clone https://github.com/edenqwq/edenfetch
