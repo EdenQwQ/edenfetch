@@ -1,6 +1,8 @@
 # edenfetch
 
-![screenshot](Screenshot.png)
+<p align="center">
+  <img src="Screenshot" width="350" title="screenshot">
+</p>
 
 ## introduction
 
