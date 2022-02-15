@@ -1,6 +1,6 @@
 use clap::{arg, App};
 use colored::*;
-use nixinfo::{distro, environment, hostname, kernel, memory, uptime};
+use nixinfo::{distro, environment, hostname, kernel, memory, terminal, uptime};
 
 fn main() {
     let username: String = std::env::var("USER").unwrap();
@@ -15,6 +15,7 @@ fn main() {
         .last()
         .unwrap()
         .to_string();
+    let terminal: String = terminal().unwrap();
 
     let args = args().get_matches();
     let decor: &str = args.value_of("decor").unwrap();
@@ -32,6 +33,7 @@ fn main() {
     print_line!(cyan, "kr", kernel);
     print_line!(cyan, "mm", memory);
     print_line!(cyan, "wm", environment);
+    print_line!(cyan, "tm", terminal);
     println!();
     println!(
         "  {} {} {} {} {} {} {}",
